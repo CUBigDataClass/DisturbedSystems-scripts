@@ -64,14 +64,14 @@ def get_artist_id(h5, songidx=0):
     """
     Get artist id from a HDF5 song file, by default the first song in it
     """
-    return str(h5.root.metadata.songs.cols.artist_id[songidx])
+    return h5.root.metadata.songs.cols.artist_id[songidx].decode("utf-8")
 
 
 def get_artist_mbid(h5, songidx=0):
     """
     Get artist musibrainz id from a HDF5 song file, by default the first song in it
     """
-    return str(h5.root.metadata.songs.cols.artist_mbid[songidx])
+    return h5.root.metadata.songs.cols.artist_mbid[songidx].decode("utf-8")
 
 
 def get_artist_playmeid(h5, songidx=0):
@@ -106,21 +106,21 @@ def get_artist_location(h5, songidx=0):
     """
     Get artist location from a HDF5 song file, by default the first song in it
     """
-    return str(h5.root.metadata.songs.cols.artist_location[songidx])
+    return h5.root.metadata.songs.cols.artist_location[songidx].decode("utf-8")
 
 
 def get_artist_name(h5, songidx=0):
     """
     Get artist name from a HDF5 song file, by default the first song in it
     """
-    return str(h5.root.metadata.songs.cols.artist_name[songidx])
+    return h5.root.metadata.songs.cols.artist_name[songidx].decode("utf-8")
 
 
 def get_release(h5, songidx=0):
     """
     Get release from a HDF5 song file, by default the first song in it
     """
-    return str(h5.root.metadata.songs.cols.release[songidx])
+    return h5.root.metadata.songs.cols.release[songidx].decode("utf-8")
 
 
 def get_release_7digitalid(h5, songidx=0):
@@ -134,7 +134,7 @@ def get_song_id(h5, songidx=0):
     """
     Get song id from a HDF5 song file, by default the first song in it
     """
-    return str(h5.root.metadata.songs.cols.song_id[songidx])
+    return h5.root.metadata.songs.cols.song_id[songidx].decode("utf-8")
 
 
 def get_song_hotttnesss(h5, songidx=0):
@@ -148,7 +148,7 @@ def get_title(h5, songidx=0):
     """
     Get title from a HDF5 song file, by default the first song in it
     """
-    return str(h5.root.metadata.songs.cols.title[songidx])
+    return h5.root.metadata.songs.cols.title[songidx].decode("utf-8")
 
 
 def get_track_7digitalid(h5, songidx=0):
@@ -171,7 +171,7 @@ def get_similar_artists(h5, songidx=0):
         ret_data = h5.root.metadata.similar_artists[h5.root.metadata.songs.cols.idx_similar_artists[songidx]:
                                                     h5.root.metadata.songs.cols.idx_similar_artists[songidx + 1]]
 
-    return [str(artists) for artists in ret_data]
+    return [artists.decode("utf-8") for artists in ret_data]
 
 
 def get_artist_terms(h5, songidx=0):
@@ -221,7 +221,7 @@ def get_audio_md5(h5, songidx=0):
     """
     Get audio MD5 from a HDF5 song file, by default the first song in it
     """
-    return str(h5.root.analysis.songs.cols.audio_md5[songidx])
+    return h5.root.analysis.songs.cols.audio_md5[songidx].decode("utf-8")
 
 
 def get_danceability(h5, songidx=0):
@@ -319,7 +319,7 @@ def get_track_id(h5, songidx=0):
     """
     Get track id from a HDF5 song file, by default the first song in it
     """
-    return str(h5.root.analysis.songs.cols.track_id[songidx])
+    return h5.root.analysis.songs.cols.track_id[songidx].decode("utf-8")
 
 
 def get_segments_start(h5, songidx=0):
