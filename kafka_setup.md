@@ -98,4 +98,10 @@ Under ```Zookeeper``` add comma separated zookeeper ips with ports to ```zookeep
 Example: 
 ```
 zookeeper.connect=10.142.0.59:2181,10.142.0.60:2181,10.142.0.61:2181
+``` 
+Save this file and exit.
+
+To start Kafka use the following command on all servers:
+```shell
+sudo /opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties &
 ```
