@@ -44,7 +44,7 @@ sudo systemctl stop zookeeper.service
 ```
 
 If you are setting up a Zookeeper cluster, __stop all the Zookeepers__ before making config changes.
-Start the Zookeeper services on the servers after you have made config changes on all servers.
+Start Zookeeper services on the servers after you have made config changes on all servers.
 
 Open ```/etc/zookeeper/conf/zoo.cfg``` and add the ip addresses of all zookeeper servers you want in the cluster including the current server.
 
@@ -55,6 +55,11 @@ server.2=10.142.0.60:2888:3888
 server.3=10.142.0.61:2888:3888
 ```
 so on...
+
+Start Zookeeper services on the servers after you have made config changes on all servers:
+```shell
+sudo systemctl start zookeeper.service
+```
 
 ### KAFKA CONFIG
 
