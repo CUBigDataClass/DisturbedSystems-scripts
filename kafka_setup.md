@@ -47,6 +47,7 @@ If you are setting up a Zookeeper cluster, __stop all the Zookeepers__ before ma
 Start Zookeeper services on the servers after you have made config changes on all servers.
 
 Every node in a Zookeeper cluster must have a __unique id__. Specify this id by writing it into ```/etc/zookeeper/conf/myid```.
+Example:
 ```
 sudo su
 echo 1 > /etc/zookeeper/conf/myid
@@ -78,7 +79,7 @@ Under ```Server Basics``` set __unique ```broker.id``` value for every server__ 
 broker.id=60
 ```
 
-Add the following two commands below the config ```broker.id``` in ```server.properties```:
+Add the following two lines below the config ```broker.id``` in ```server.properties```:
 ```
 #Enables deletion of topics
 delete.topic.enable = true
@@ -107,7 +108,7 @@ zookeeper.connect=10.142.0.59:2181,10.142.0.60:2181,10.142.0.61:2181
 ``` 
 Save this file and exit.
 
-To start Kafka use the following command on all servers:
+To start Kafka (and detach from terminal) use the following command on all servers:
 ```shell
 sudo /opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties &
 ```
