@@ -30,7 +30,7 @@ Create directory for Kafka logs
 sudo mkdir /var/lib/kafka
 sudo mkdir /var/lib/kafka/data
 ```
-OPTIONAL: install python3 and kafka driver to create python kafka clients
+OPTIONAL: install kafka driver to create python kafka clients
 ```shell
 sudo apt -y install python3-pip
 pip3 install kafka-python
@@ -45,6 +45,12 @@ sudo systemctl stop zookeeper.service
 
 If you are setting up a Zookeeper cluster, __stop all the Zookeepers__ before making config changes.
 Start Zookeeper services on the servers after you have made config changes on all servers.
+
+Every node in a Zookeeper cluster must have a __unique id__. Specify this id by writing it into ```/etc/zookeeper/conf/myid```.
+```
+sudo su
+echo 1 > /etc/zookeeper/conf/myid
+```
 
 Open ```/etc/zookeeper/conf/zoo.cfg``` and add the ip addresses of all zookeeper servers you want in the cluster including the current server.
 
